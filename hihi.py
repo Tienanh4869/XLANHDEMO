@@ -14,23 +14,66 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(703, 352)
+        Form.resize(836, 511)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("C:/Users/tiena/Downloads/2026-02-05_122819.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Form.setWindowIcon(icon)
+        Form.setAutoFillBackground(True)
+        Form.setStyleSheet("")
+        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pushButton.setGeometry(QtCore.QRect(150, 400, 231, 61))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(18)
+        self.pushButton.setFont(font)
+        self.pushButton.setAcceptDrops(False)
+        self.pushButton.setAutoFillBackground(False)
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"\n"
+"\n"
+";\n"
+"background-color: rgb(0, 85, 127);\n"
+"border-radius:5px;\n"
+"padding: 7px 0;\n"
+"color: white;\n"
+"border: 1px solid WHITE;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: qlineargradient(\n"
+"        x1:0, y1:0, x2:1, y2:1,\n"
+"        stop:0 #ffffcc,  /* vàng trắng nhạt */\n"
+"        stop:1 #fff176   /* vàng nhạt */\n"
+"    );\n"
+"    color: black;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(\n"
+"        x1:0, y1:0, x2:1, y2:1,\n"
+"        stop:0 #ffb74d,  /* cam nhạt */\n"
+"        stop:1 #f57c00   /* cam đậm */\n"
+"    );\n"
+"    color: black;\n"
+"\n"
+"}")
+        self.pushButton.setObjectName("pushButton")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(200, 170, 55, 16))
+        self.label.setGeometry(QtCore.QRect(0, 0, 881, 511))
+        self.label.setStyleSheet("border-image: url(:/ui/nen.jpg);")
         self.label.setText("")
         self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(0, 0, 701, 351))
-        self.label_2.setStyleSheet("background-image: url(:/ui/update.png);")
-        self.label_2.setText("")
-        self.label_2.setObjectName("label_2")
+        self.label.raise_()
+        self.pushButton.raise_()
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Trình chỉnh sửa ảnh"))
+        self.pushButton.setText(_translate("Form", "Bắt Đầu"))
+import img_rc
 
 
 if __name__ == "__main__":

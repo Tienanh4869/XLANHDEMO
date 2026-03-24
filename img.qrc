@@ -1,6 +1,9 @@
 <RCC>
   <qresource prefix="ui">
+    <file>nen.jpg</file>
+    <file>nen1.png</file>
+    <file>unnamed.jpg</file>
+    <file>icon.png</file>
     <file>update.png</file>
   </qresource>
-  <qresource prefix="newPrefix"/>
 </RCC>

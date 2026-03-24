@@ -6,42 +6,97 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>703</width>
-    <height>352</height>
+    <width>836</width>
+    <height>511</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Trình chỉnh sửa ảnh</string>
   </property>
-  <widget class="QLabel" name="label">
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/tiena/Downloads/2026-02-05_122819.png</normaloff>C:/Users/tiena/Downloads/2026-02-05_122819.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>170</y>
-     <width>55</width>
-     <height>16</height>
+     <x>150</x>
+     <y>400</y>
+     <width>231</width>
+     <height>61</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+
+
+;
+background-color: rgb(0, 85, 127);
+border-radius:5px;
+padding: 7px 0;
+color: white;
+border: 1px solid WHITE;
+}
+
+QPushButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffffcc,  /* vàng trắng nhạt */
+        stop:1 #fff176   /* vàng nhạt */
+    );
+    color: black;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffb74d,  /* cam nhạt */
+        stop:1 #f57c00   /* cam đậm */
+    );
+    color: black;
+
+}</string>
+   </property>
    <property name="text">
-    <string/>
+    <string>Bắt Đầu</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>701</width>
-     <height>351</height>
+     <width>881</width>
+     <height>511</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/ui/update.png);</string>
+    <string notr="true">border-image: url(:/ui/nen.jpg);</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
+  <zorder>label</zorder>
+  <zorder>pushButton</zorder>
  </widget>
  <resources>
   <include location="img.qrc"/>

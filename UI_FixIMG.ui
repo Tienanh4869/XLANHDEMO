@@ -7,11 +7,18 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>687</height>
+    <height>680</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Trình Chỉnh Sửa Ảnh</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="img.qrc">
+    <normaloff>:/ui/icon.png</normaloff>:/ui/icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(168, 168, 168);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="widget" native="true">
@@ -35,71 +42,99 @@
        <height>571</height>
       </rect>
      </property>
-     <widget class="QLabel" name="lblOri">
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid white;</string>
+     </property>
+     <widget class="QGroupBox" name="groupBox_4">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>20</x>
         <y>10</y>
-        <width>141</width>
-        <height>31</height>
+        <width>401</width>
+        <height>271</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <pointsize>10</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
-      <property name="text">
-       <string>Original Image</string>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid black;</string>
       </property>
+      <property name="title">
+       <string>ẢNH GỐC</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <widget class="QLabel" name="lblOriginal">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>381</width>
+         <height>221</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0;
+</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
-     <widget class="QLabel" name="lblProc">
+     <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>285</y>
-        <width>161</width>
-        <height>31</height>
+        <x>20</x>
+        <y>290</y>
+        <width>401</width>
+        <height>271</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <pointsize>10</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
-      <property name="text">
-       <string>Processed Image</string>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid black;</string>
       </property>
-     </widget>
-     <widget class="QLabel" name="lblOriginal">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>50</y>
-        <width>381</width>
-        <height>221</height>
-       </rect>
+      <property name="title">
+       <string>ẢNH ĐÃ XỬ LÝ</string>
       </property>
-      <property name="text">
-       <string/>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
-     </widget>
-     <widget class="QLabel" name="lblProcessed">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>330</y>
-        <width>381</width>
-        <height>221</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
+      <widget class="QLabel" name="lblProcessed">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>381</width>
+         <height>221</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="widget_3" native="true">
@@ -111,6 +146,9 @@
        <height>571</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid white;</string>
+     </property>
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
@@ -119,6 +157,16 @@
         <width>251</width>
         <height>121</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid black;</string>
       </property>
       <property name="title">
        <string>Cải thiện thiếu sáng</string>
@@ -132,6 +180,15 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0;</string>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>50</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -140,9 +197,9 @@
        <property name="geometry">
         <rect>
          <x>40</x>
-         <y>70</y>
+         <y>60</y>
          <width>171</width>
-         <height>28</height>
+         <height>41</height>
         </rect>
        </property>
        <property name="font">
@@ -150,8 +207,65 @@
          <pointsize>9</pointsize>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+
+;
+background-color: rgb(0, 85, 127);
+border-radius:5px;
+padding: 7px 0;
+color: white;
+border: 1px solid WHITE;
+}
+
+QPushButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffffcc,  /* vàng trắng nhạt */
+        stop:1 #fff176   /* vàng nhạt */
+    );
+    color: black;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffb74d,  /* cam nhạt */
+        stop:1 #f57c00   /* cam đậm */
+    );
+    color: black;
+
+}</string>
+       </property>
        <property name="text">
         <string>Cân bằng Histogram</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblGammaValue">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>10</y>
+         <width>55</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0;</string>
+       </property>
+       <property name="text">
+        <string>50</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </widget>
@@ -164,6 +278,16 @@
         <height>251</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid black;</string>
+      </property>
       <property name="title">
        <string>Chỉnh sửa cơ bản</string>
       </property>
@@ -173,11 +297,47 @@
          <x>10</x>
          <y>30</y>
          <width>71</width>
-         <height>28</height>
+         <height>31</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+
+;
+background-color: rgb(0, 85, 127);
+border-radius:5px;
+padding: 7px 0;
+color: white;
+border: 1px solid WHITE;
+}
+
+QPushButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffffcc,  /* vàng trắng nhạt */
+        stop:1 #fff176   /* vàng nhạt */
+    );
+    color: black;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffb74d,  /* cam nhạt */
+        stop:1 #f57c00   /* cam đậm */
+    );
+    color: black;
+
+}</string>
+       </property>
        <property name="text">
-        <string>Quay</string>
+        <string>Xoay</string>
        </property>
       </widget>
       <widget class="QPushButton" name="btnFlip">
@@ -186,8 +346,44 @@
          <x>90</x>
          <y>30</y>
          <width>71</width>
-         <height>28</height>
+         <height>31</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+
+;
+background-color: rgb(0, 85, 127);
+border-radius:5px;
+padding: 7px 0;
+color: white;
+border: 1px solid WHITE;
+}
+
+QPushButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffffcc,  /* vàng trắng nhạt */
+        stop:1 #fff176   /* vàng nhạt */
+    );
+    color: black;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffb74d,  /* cam nhạt */
+        stop:1 #f57c00   /* cam đậm */
+    );
+    color: black;
+
+}</string>
        </property>
        <property name="text">
         <string>Lật</string>
@@ -199,8 +395,44 @@
          <x>170</x>
          <y>30</y>
          <width>71</width>
-         <height>28</height>
+         <height>31</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+
+;
+background-color: rgb(0, 85, 127);
+border-radius:5px;
+padding: 7px 0;
+color: white;
+border: 1px solid WHITE;
+}
+
+QPushButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffffcc,  /* vàng trắng nhạt */
+        stop:1 #fff176   /* vàng nhạt */
+    );
+    color: black;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffb74d,  /* cam nhạt */
+        stop:1 #f57c00   /* cam đậm */
+    );
+    color: black;
+
+}</string>
        </property>
        <property name="text">
         <string>Cắt</string>
@@ -211,9 +443,18 @@
         <rect>
          <x>20</x>
          <y>80</y>
-         <width>61</width>
+         <width>71</width>
          <height>16</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0;</string>
        </property>
        <property name="text">
         <string>Khử nhiễu</string>
@@ -228,6 +469,15 @@
          <height>16</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0;</string>
+       </property>
        <property name="text">
         <string>Làm mịn</string>
        </property>
@@ -240,6 +490,12 @@
          <width>221</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0;</string>
+       </property>
+       <property name="maximum">
+        <number>100</number>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -254,8 +510,66 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0;</string>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblDenoiseValue">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>80</y>
+         <width>55</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0;</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblSmoothValue">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>160</y>
+         <width>55</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0;</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </widget>
@@ -268,6 +582,16 @@
         <height>81</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid black;</string>
+      </property>
       <property name="title">
        <string>Lịch sử</string>
       </property>
@@ -279,6 +603,37 @@
          <width>71</width>
          <height>28</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+
+;
+background-color: rgb(0, 85, 127);
+border-radius:5px;
+padding: 7px 0;
+color: white;
+border: 1px solid WHITE;
+}
+
+QPushButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffffcc,  /* vàng trắng nhạt */
+        stop:1 #fff176   /* vàng nhạt */
+    );
+    color: black;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffb74d,  /* cam nhạt */
+        stop:1 #f57c00   /* cam đậm */
+    );
+    color: black;
+
+}</string>
        </property>
        <property name="text">
         <string>Hoàn tác</string>
@@ -293,10 +648,90 @@
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+
+;
+background-color: rgb(0, 85, 127);
+border-radius:5px;
+padding: 7px 0;
+color: white;
+border: 1px solid WHITE;
+}
+
+QPushButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffffcc,  /* vàng trắng nhạt */
+        stop:1 #fff176   /* vàng nhạt */
+    );
+    color: black;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffb74d,  /* cam nhạt */
+        stop:1 #f57c00   /* cam đậm */
+    );
+    color: black;
+
+}</string>
+       </property>
        <property name="text">
         <string>Reset</string>
        </property>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="btnShowHist">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>420</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+
+
+;
+background-color: rgb(0, 85, 127);
+border-radius:5px;
+padding: 7px 0;
+color: white;
+border: 1px solid WHITE;
+}
+
+QPushButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffffcc,  /* vàng trắng nhạt */
+        stop:1 #fff176   /* vàng nhạt */
+    );
+    color: black;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffb74d,  /* cam nhạt */
+        stop:1 #f57c00   /* cam đậm */
+    );
+    color: black;
+
+}</string>
+      </property>
+      <property name="text">
+       <string>Xem sơ đồ Histogram</string>
+      </property>
      </widget>
     </widget>
    </widget>
@@ -312,7 +747,7 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Tệp</string>
     </property>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
@@ -322,15 +757,17 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen">
    <property name="text">
-    <string>Open</string>
+    <string>Mở</string>
    </property>
   </action>
   <action name="actionSave">
    <property name="text">
-    <string>Save</string>
+    <string>Lưu</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="img.qrc"/>
+ </resources>
  <connections/>
 </ui>
