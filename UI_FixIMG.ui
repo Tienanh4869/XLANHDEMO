@@ -177,11 +177,33 @@
          <x>10</x>
          <y>30</y>
          <width>221</width>
-         <height>22</height>
+         <height>30</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border: 0;</string>
+        <string notr="true">QSlider#sliderGamma {
+    outline: none;
+    border: none;
+}
+
+QSlider::groove:horizontal {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px; 
+}
+
+QSlider::handle:horizontal {
+    background: #0078D7; 
+    width: 20px;  
+    height: 20px;
+    margin: -6px 0;
+    border-radius: 10px; 
+	border: none;
+}
+
+QSlider::handle:horizontal:hover {
+    background: #005A9E;
+}</string>
        </property>
        <property name="maximum">
         <number>100</number>
@@ -196,9 +218,9 @@
       <widget class="QPushButton" name="btnHistEq">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>60</y>
-         <width>81</width>
+         <x>10</x>
+         <y>70</y>
+         <width>141</width>
          <height>41</height>
         </rect>
        </property>
@@ -271,8 +293,8 @@ QPushButton:pressed {
       <widget class="QPushButton" name="btnCLAHE">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>60</y>
+         <x>160</x>
+         <y>70</y>
          <width>81</width>
          <height>41</height>
         </rect>
@@ -541,7 +563,29 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border: 0;</string>
+        <string notr="true">QSlider#SliderDenoise {
+    outline: none;
+    border: none;
+}
+
+QSlider::groove:horizontal {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px; 
+}
+
+QSlider::handle:horizontal {
+    background: #0078D7; 
+    width: 20px;  
+    height: 20px;
+    margin: -6px 0;
+    border-radius: 10px; 
+	border: none;
+}
+
+QSlider::handle:horizontal:hover {
+    background: #005A9E;
+}</string>
        </property>
        <property name="maximum">
         <number>100</number>
@@ -560,7 +604,29 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border: 0;</string>
+        <string notr="true">QSlider#SliderLammin {
+    outline: none;
+    border: none;
+}
+
+QSlider::groove:horizontal {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px; 
+}
+
+QSlider::handle:horizontal {
+    background: #0078D7; 
+    width: 20px;  
+    height: 20px;
+    margin: -6px 0;
+    border-radius: 10px; 
+	border: none;
+}
+
+QSlider::handle:horizontal:hover {
+    background: #005A9E;
+}</string>
        </property>
        <property name="maximum">
         <number>100</number>
@@ -648,7 +714,7 @@ QPushButton:pressed {
        <property name="geometry">
         <rect>
          <x>40</x>
-         <y>30</y>
+         <y>40</y>
          <width>71</width>
          <height>28</height>
         </rect>
@@ -692,7 +758,7 @@ QPushButton:pressed {
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>30</y>
+         <y>40</y>
          <width>71</width>
          <height>28</height>
         </rect>
