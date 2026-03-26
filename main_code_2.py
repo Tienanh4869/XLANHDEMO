@@ -284,21 +284,21 @@ class ImageProcessorApp(QMainWindow):
         self.apply_all_effects()
 
     def apply_clahe(self):
-    if self.original_img is None: return
-    self.save_state()
+        if self.original_img is None: return
+        self.save_state()
 
-    base_img = self.source_img.copy()  # LUÔN lấy từ két sắt
+        base_img = self.source_img.copy()  # LUÔN lấy từ két sắt
 
-    img_lab = cv2.cvtColor(base_img, cv2.COLOR_BGR2LAB)
-    l, a, b = cv2.split(img_lab)
+        img_lab = cv2.cvtColor(base_img, cv2.COLOR_BGR2LAB)
+        l, a, b = cv2.split(img_lab)
 
-    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-    cl = clahe.apply(l)
+        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+        cl = clahe.apply(l)
 
-    merged = cv2.merge((cl, a, b))
-    self.original_img = cv2.cvtColor(merged, cv2.COLOR_LAB2BGR)
+        merged = cv2.merge((cl, a, b))
+        self.original_img = cv2.cvtColor(merged, cv2.COLOR_LAB2BGR)
 
-    self.apply_all_effects()
+        self.apply_all_effects()
 
     # --- CÁC TÍNH NĂNG QUẢN LÝ (Undo, Reset, Show Dialog) ---
 
