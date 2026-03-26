@@ -284,23 +284,21 @@ class ImageProcessorApp(QMainWindow):
         self.apply_all_effects()
 
     def apply_clahe(self):
-        """Cân bằng Histogram cục bộ (CLAHE - Giữ chi tiết tốt hơn, tự nhiên hơn)"""
-        if self.original_img is None: return
-        self.save_state()
+    if self.original_img is None: return
+    self.save_state()
 
-        # Không gian LAB: Kênh L là ánh sáng, A và B là màu
-        img_lab = cv2.cvtColor(self.original_img, cv2.COLOR_BGR2LAB)
-        l, a, b = cv2.split(img_lab)  # Tách 3 kênh ra
+    base_img = self.source_img.copy()  # LUÔN lấy từ két sắt
 
-        # Khởi tạo công cụ CLAHE với giới hạn tương phản là 2.0 (tránh noise)
-        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-        cl = clahe.apply(l)  # Áp dụng vào kênh L
+    img_lab = cv2.cvtColor(base_img, cv2.COLOR_BGR2LAB)
+    l, a, b = cv2.split(img_lab)
 
-        # Gộp lại và đổi về BGR
-        img_lab_merged = cv2.merge((cl, a, b))
-        self.original_img = cv2.cvtColor(img_lab_merged, cv2.COLOR_LAB2BGR)
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+    cl = clahe.apply(l)
 
-        self.apply_all_effects()
+    merged = cv2.merge((cl, a, b))
+    self.original_img = cv2.cvtColor(merged, cv2.COLOR_LAB2BGR)
+
+    self.apply_all_effects()
 
     # --- CÁC TÍNH NĂNG QUẢN LÝ (Undo, Reset, Show Dialog) ---
 
