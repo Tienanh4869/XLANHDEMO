@@ -1,6 +1,7 @@
 import sys
 import cv2
 import numpy as np
+import math
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox, QDialog, QVBoxLayout
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5 import uic
@@ -9,6 +10,9 @@ from hihi import Ui_Form
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
+
+# --- THƯ VIỆN ĐÁNH GIÁ CHẤT LƯỢNG ẢNH ---
+from skimage.metrics import structural_similarity as ssim
 
 
 class ManHinhChao(QMainWindow):
@@ -53,7 +57,7 @@ class HistogramDialog(QDialog):
 
         ax_img_orig.imshow(self.orig_gray, cmap='gray')
         ax_img_orig.set_title('Ảnh gốc', fontweight='bold')
-        ax_img_orig.axis('off')
+        ax_img_orig.axis('on')
 
         ax_hist_orig.fill_between(range(256), hist_orig, color='black')
         ax_hist_orig.set_title('Histogram gốc', fontweight='bold')
@@ -76,11 +80,12 @@ class HistogramDialog(QDialog):
 
         ax_stats.axis('off')
         stats_text = self.generate_stats_text()
-        ax_stats.text(0.1, 0.5, stats_text, fontsize=11, family='monospace', va='center', ha='left')
+        ax_stats.text(0.05, 0.5, stats_text, fontsize=10, family='monospace', va='center', ha='left')
 
         fig.tight_layout()
 
     def generate_stats_text(self):
+        # 1. Thống kê cơ bản
         def get_stats(img):
             return {
                 'min': np.min(img),
@@ -92,7 +97,20 @@ class HistogramDialog(QDialog):
         orig = get_stats(self.orig_gray)
         proc = get_stats(self.proc_gray)
 
-        text = "THONG KE HISTOGRAM\n\n"
+        # 2. Tính toán PSNR và MSE
+        mse_val = np.mean((self.orig_gray.astype(float) - self.proc_gray.astype(float)) ** 2)
+        if mse_val == 0:
+            psnr_val = float('inf')
+        else:
+            psnr_val = 20 * math.log10(255.0 / math.sqrt(mse_val))
+
+        # 3. Tính toán SSIM
+        # Đưa tham số data_range=255 để scikit-image biết giới hạn pixel
+        ssim_val = ssim(self.orig_gray, self.proc_gray, data_range=255)
+
+        # 4. Tạo chuỗi hiển thị
+        text = "THONG KE CO BAN\n"
+        text += "-------------------\n"
         text += "Anh goc:\n"
         text += f"- Min:     {orig['min']}\n"
         text += f"- Max:     {orig['max']}\n"
@@ -103,7 +121,14 @@ class HistogramDialog(QDialog):
         text += f"- Min:     {proc['min']}\n"
         text += f"- Max:     {proc['max']}\n"
         text += f"- Mean:    {proc['mean']:.2f}\n"
-        text += f"- Std Dev: {proc['std']:.2f}\n"
+        text += f"- Std Dev: {proc['std']:.2f}\n\n\n"
+
+        text += "DANH GIA CHAT LUONG\n"
+        text += "(So voi anh goc)\n"
+        text += "-------------------\n"
+        text += f"- MSE:     {mse_val:.2f}\n"
+        text += f"- PSNR:    {psnr_val:.2f} dB\n"
+        text += f"- SSIM:    {ssim_val:.4f}\n"
 
         return text
 
@@ -135,8 +160,6 @@ class ImageProcessorApp(QMainWindow):
         self.btnUndo.clicked.connect(self.undo_action)
         self.btnReset.clicked.connect(self.reset_image)
         self.btnShowHist.clicked.connect(self.show_histogram)
-
-        # [MỚI] Kết nối nút CLAHE
         self.btnCLAHE.clicked.connect(self.apply_clahe)
 
     def display_image(self, img, label):
@@ -222,26 +245,21 @@ class ImageProcessorApp(QMainWindow):
     def apply_hist_eq(self):
         if self.original_img is None: return
         self.save_state()
-        # Chuyển sang không gian màu YUV, cân bằng kênh Y (độ sáng)
         img_yuv = cv2.cvtColor(self.original_img, cv2.COLOR_BGR2YUV)
         img_yuv[:, :, 0] = cv2.equalizeHist(img_yuv[:, :, 0])
         self.original_img = cv2.cvtColor(img_yuv, cv2.COLOR_YUV2BGR)
         self.apply_all_effects()
 
-    # --- [MỚI] THUẬT TOÁN CLAHE ---
     def apply_clahe(self):
         if self.original_img is None: return
         self.save_state()
 
-        # Chuyển sang không gian màu LAB (phù hợp với CLAHE hơn để tách độ sáng)
         img_lab = cv2.cvtColor(self.original_img, cv2.COLOR_BGR2LAB)
         l, a, b = cv2.split(img_lab)
 
-        # Tạo đối tượng CLAHE với giới hạn tương phản = 2.0 và chia lưới 8x8
         clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
         cl = clahe.apply(l)
 
-        # Gộp các kênh lại và chuyển về BGR
         img_lab_merged = cv2.merge((cl, a, b))
         self.original_img = cv2.cvtColor(img_lab_merged, cv2.COLOR_LAB2BGR)
 

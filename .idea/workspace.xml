@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="428ff5c2-5069-42d6-a106-2e8338b56c10" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/XLANHDEMO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/XLANHDEMO.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI_FixIMG.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI_FixIMG.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hihi.py" beforeDir="false" afterPath="$PROJECT_DIR$/hihi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hihi.ui" beforeDir="false" afterPath="$PROJECT_DIR$/hihi.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/img.qrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_code_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_code_2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +50,9 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Python.a.executor&quot;: &quot;Run&quot;,
     &quot;Python.check.executor&quot;: &quot;Run&quot;,
+    &quot;Python.code test.executor&quot;: &quot;Run&quot;,
     &quot;Python.giaodien.executor&quot;: &quot;Run&quot;,
+    &quot;Python.giaodiendongian.executor&quot;: &quot;Run&quot;,
     &quot;Python.hihi.executor&quot;: &quot;Run&quot;,
     &quot;Python.main_code.executor&quot;: &quot;Run&quot;,
     &quot;Python.main_code_2.executor&quot;: &quot;Run&quot;,
