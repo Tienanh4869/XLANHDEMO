@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="ui">
+    <file>bg.png</file>
     <file>nen.jpg</file>
     <file>nen1.png</file>
     <file>unnamed.jpg</file>
