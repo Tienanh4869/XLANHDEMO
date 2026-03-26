@@ -381,11 +381,11 @@ class ImageProcessorApp(QMainWindow):
 
     def show_histogram(self):
         """Mở cửa sổ thống kê Histogram"""
-        if self.original_img is None or self.current_img is None:
+        if self.source_img is None or self.current_img is None:
             QMessageBox.warning(self, "Thông báo", "Vui lòng mở ảnh trước khi xem Histogram!")
             return
 
-        dialog = HistogramDialog(self.original_img, self.current_img, self)
+        dialog = HistogramDialog(self.source_img, self.current_img, self)
         dialog.exec_()  # Dùng exec_ để mở hộp thoại và khóa tương tác với cửa sổ chính cho đến khi đóng
 
 
